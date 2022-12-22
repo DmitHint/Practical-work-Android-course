@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/passengersInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="@string/allSeatsAreFree"
+        android:textAppearance="@style/AllSeatsAreFree" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/addPassenger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_margin="15dp"
+        android:background="@drawable/selector_add_button"
+        android:padding="30dp"
+        android:src="@drawable/add_48px" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/removePassenger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+        android:layout_margin="15dp"
+        android:background="@drawable/selector_remove_button"
+        android:padding="30dp"
+        android:src="@drawable/remove_48px" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:padding="35dp"
+        android:text="@string/reset"
+        android:textAppearance="@style/Reset"
+        android:visibility="invisible" />
+
+
+</FrameLayout>

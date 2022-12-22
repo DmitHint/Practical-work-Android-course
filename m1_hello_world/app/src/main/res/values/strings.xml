@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">M1_hello_world</string>
+    <string name="allSeatsAreFree">Все места свободны</string>
+    <string name="seatsLeft">Осталось мест:</string>
+    <string name="allSeatsAreOccupied">Пассажиров слишком много!</string>
+    <string name="reset">Сброс</string>
+</resources>
