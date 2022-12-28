@@ -12,82 +12,53 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setViewAccordingStatus(
-            binding,
-            StatusForView.AllSeatsAreFree,
-            getString(R.string.allSeatsAreFree)
-        )
+        setViewAccordingStatus(binding, StatusForView.AllSeatsAreFree)
 
         binding.addPassenger.setOnClickListener {
             counter++
-            setViewAccordingStatus(
-                binding,
-                StatusForView.SeatsLeft,
-                getString(R.string.seatsLeft),
-                maxSeats,
-                counter
-            )
+            setViewAccordingStatus(binding, StatusForView.SeatsLeft)
             if (maxSeats - counter == 0) {
-                setViewAccordingStatus(
-                    binding,
-                    StatusForView.AllSeatsAreOccupied,
-                    getString(R.string.allSeatsAreOccupied)
-                )
+                setViewAccordingStatus(binding, StatusForView.AllSeatsAreOccupied)
             }
         }
         binding.removePassenger.setOnClickListener {
             counter--
-            setViewAccordingStatus(
-                binding,
-                StatusForView.SeatsLeft,
-                getString(R.string.seatsLeft),
-                maxSeats,
-                counter
-            )
+            setViewAccordingStatus(binding, StatusForView.SeatsLeft)
             if (counter == 0)
-                setViewAccordingStatus(
-                    binding,
-                    StatusForView.AllSeatsAreFree,
-                    getString(R.string.allSeatsAreFree)
-                )
+                setViewAccordingStatus(binding, StatusForView.AllSeatsAreFree)
         }
         binding.reset.setOnClickListener {
             counter = 0
-            setViewAccordingStatus(
-                binding,
-                StatusForView.AllSeatsAreFree,
-                getString(R.string.allSeatsAreFree)
-            )
+            setViewAccordingStatus(binding, StatusForView.AllSeatsAreFree)
         }
     }
-}
 
-fun setViewAccordingStatus(
-    binding: ActivityMainBinding,
-    status: StatusForView,
-    textForView: String,
-    maxSeats: Int = 0,
-    counter: Int = 0
-) {
-    binding.passengersInfo.text = textForView
-    when (status) {
-        is StatusForView.AllSeatsAreFree -> {
-            binding.passengersInfo.setTextAppearance(R.style.AllSeatsAreFree)
-            binding.addPassenger.isEnabled = true
-            binding.removePassenger.isEnabled = false
-            binding.reset.visibility = View.INVISIBLE
-        }
-        is StatusForView.AllSeatsAreOccupied -> {
-            binding.passengersInfo.setTextAppearance(R.style.AllSeatsAreOccupied)
-            binding.reset.visibility = View.VISIBLE
-            binding.addPassenger.isEnabled = false
-        }
-        is StatusForView.SeatsLeft -> {
-            binding.passengersInfo.text = textForView + " ${maxSeats - counter}"
-            binding.removePassenger.isEnabled = counter != 0
-            binding.addPassenger.isEnabled = maxSeats != 0
-            binding.passengersInfo.setTextAppearance(R.style.SeatsLeft)
-            binding.reset.visibility = View.INVISIBLE
+    private fun setViewAccordingStatus(
+        binding: ActivityMainBinding,
+        status: StatusForView,
+    ) {
+        when (status) {
+            is StatusForView.AllSeatsAreFree -> {
+                binding.passengersInfo.setTextAppearance(R.style.AllSeatsAreFree)
+                binding.passengersInfo.text = this.getString(R.string.allSeatsAreFree)
+                binding.addPassenger.isEnabled = true
+                binding.removePassenger.isEnabled = false
+                binding.reset.visibility = View.INVISIBLE
+            }
+            is StatusForView.AllSeatsAreOccupied -> {
+                binding.passengersInfo.text = this.getString(R.string.allSeatsAreOccupied)
+                binding.passengersInfo.setTextAppearance(R.style.AllSeatsAreOccupied)
+                binding.reset.visibility = View.VISIBLE
+                binding.addPassenger.isEnabled = false
+            }
+            is StatusForView.SeatsLeft -> {
+                binding.passengersInfo.text =
+                    this.getString(R.string.seatsLeft) + " ${this.maxSeats - this.counter}"
+                binding.removePassenger.isEnabled = this.counter != 0
+                binding.addPassenger.isEnabled = this.maxSeats != 0
+                binding.passengersInfo.setTextAppearance(R.style.SeatsLeft)
+                binding.reset.visibility = View.INVISIBLE
+            }
         }
     }
 }
