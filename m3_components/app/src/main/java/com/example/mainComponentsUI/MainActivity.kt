@@ -1,20 +1,22 @@
 package com.example.mainComponentsUI
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.slider.Slider
 import kotlinx.coroutines.*
-
-var firstRun = true
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val themeButtonDark = findViewById<ImageButton>(R.id.themeButtonDark)
         val themeButtonLight = findViewById<ImageButton>(R.id.themeButtonLight)
         val timerButton = findViewById<Button>(R.id.timerButton)
@@ -22,39 +24,10 @@ class MainActivity : AppCompatActivity() {
         val progressCircular = findViewById<ProgressBar>(R.id.progressCircular)
         val slider = findViewById<Slider>(R.id.slider)
         val time = findViewById<TextView>(R.id.time)
-
-        if (firstRun) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            firstRun = false
-        } else {
-            when(AppCompatDelegate.getDefaultNightMode()){
-                AppCompatDelegate.MODE_NIGHT_NO -> {
-                    themeButtonLight.visibility = View.INVISIBLE
-                    themeButtonDark.visibility = View.VISIBLE
-                }
-                AppCompatDelegate.MODE_NIGHT_YES -> {
-                    themeButtonLight.visibility = View.VISIBLE
-                    themeButtonDark.visibility = View.INVISIBLE
-                }
-            }
-        }
-
         time.text = slider.value.toInt().toString()
 
-        slider.addOnChangeListener { _, value, _ ->
+        slider.addOnChangeListener { slider, value, _ ->
             time.text = value.toInt().toString()
-        }
-
-        themeButtonDark.setOnClickListener {
-            themeButtonLight.visibility = View.VISIBLE
-            themeButtonDark.visibility = View.INVISIBLE
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }
-
-        themeButtonLight.setOnClickListener {
-            themeButtonLight.visibility = View.INVISIBLE
-            themeButtonDark.visibility = View.VISIBLE
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
 
         var isStarted = false
@@ -65,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             val valueOnStart = time.text.toString().toInt()
             if (isStarted) {
                 themeButtonDark.isEnabled = false
-                themeButtonLight.isEnabled = false
+                themeButtonDark.isEnabled = false
                 timerButton.setText(R.string.stop)
                 slider.isEnabled = false
                 curTime = scope.launch {
@@ -85,8 +58,6 @@ class MainActivity : AppCompatActivity() {
                     ).show()
                 }
             } else {
-                themeButtonDark.isEnabled = true
-                themeButtonLight.isEnabled = true
                 curTime.cancel()
                 slider.isEnabled = true
                 progressCircular.progress = 100
