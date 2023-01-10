@@ -83,7 +83,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progressCircular"
         app:thumbRadius="15dp"
-        app:trackColor="?attr/colorPrimary"
         app:trackHeight="7dp" />
 
     <Button
