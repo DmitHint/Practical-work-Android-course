@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">5ConstraintLayout</string>
+    <string name="singer">Исполнитель</string>
+    <string name="composition_name">Наименование композиции</string>
+</resources>
