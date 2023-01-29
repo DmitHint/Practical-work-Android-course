@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="question1">Что было "завтра", а будет "вчера"?</string>
+    <string name="question2">Что всегда увеличивается и никогда не уменьшается?</string>
+    <string name="question3">Деревянная река, деревянный катерок, а над катером струится деревянный дымок. Что это?</string>
+</resources>
