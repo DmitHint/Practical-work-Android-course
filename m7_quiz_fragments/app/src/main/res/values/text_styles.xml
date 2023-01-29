@@ -13,7 +13,7 @@
     </style>
     <style name="TextAppearance.AppCompat.ResultProgressText">
         <item name="fontFamily">@font/opensans_bold</item>
-        <item name="android:textSize">80sp</item>
+        <item name="android:textSize">70sp</item>
         <item name="android:textAlignment">center</item>
     </style>
     <style name="TextAppearance.AppCompat.SmallButtonText">
