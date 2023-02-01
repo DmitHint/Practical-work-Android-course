@@ -1,51 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/question"
         style="@style/TextAppearance.AppCompat.QuestionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        tools:text="Что было завтра, а будет вчера?" />
 
     <RadioGroup
         android:id="@+id/answers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/question"
         android:layout_marginHorizontal="50dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/question">
+        android:orientation="vertical">
 
         <RadioButton
             android:id="@+id/answer1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.AnswerText" />
+            android:textAppearance="@style/TextAppearance.AppCompat.AnswerText"
+            tools:text="answer1" />
 
         <RadioButton
             android:id="@+id/answer2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.AnswerText" />
+            android:textAppearance="@style/TextAppearance.AppCompat.AnswerText"
+            tools:text="answer2" />
 
         <RadioButton
             android:id="@+id/answer3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.AnswerText" />
+            android:textAppearance="@style/TextAppearance.AppCompat.AnswerText"
+            tools:text="answer3" />
 
         <RadioButton
             android:id="@+id/answer4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.AnswerText" />
+            android:textAppearance="@style/TextAppearance.AppCompat.AnswerText"
+            tools:text="answer4" />
     </RadioGroup>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
