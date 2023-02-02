@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_start">
+
+    <fragment
+        android:id="@+id/nav_start"
+        android:name="com.queans.StartFragment"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_StartFragment_to_QuizFragment"
+            app:destination="@id/nav_quiz"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_quiz"
+        android:name="com.queans.QuizFragment"
+        tools:layout="@layout/fragment_quiz">
+        <action
+            android:id="@+id/action_QuizFragment_to_ResultsFragment"
+            app:destination="@id/nav_results"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/nav_start" />
+        <action
+            android:id="@+id/action_QuizFragment_to_StartFragment"
+            app:destination="@id/nav_start"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_results"
+        android:name="com.queans.ResultsFragment"
+        tools:layout="@layout/fragment_results" />
+    <action
+        android:id="@+id/action_ResultsFragment_to_QuizFragment"
+        app:destination="@id/nav_quiz"
+        app:popUpTo="@id/nav_start" />
+</navigation>

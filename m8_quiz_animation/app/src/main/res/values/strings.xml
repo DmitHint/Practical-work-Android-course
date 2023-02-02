@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">QueAns</string>
+    <string name="continue_str">Начать</string>
+    <string name="back_str">Назад</string>
+    <string name="send_str">Отправить</string>
+    <string name="start_over">Начать заново</string>
+    <string name="percent_sign">%</string>
+</resources>
