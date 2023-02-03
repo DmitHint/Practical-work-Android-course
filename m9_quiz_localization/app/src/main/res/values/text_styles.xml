@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.AppCompat.QuestionText">
+        <item name="fontFamily">@font/opensans_bold</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:lineSpacingMultiplier">0.7</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.QuestionText.ForPhoto">
+    </style>
+
+    <style name="TextAppearance.AppCompat.QuestionText.ForRadioGroup">
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.AnswerText">
+        <item name="fontFamily">@font/opensans_medium</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.ResultProgressText">
+        <item name="fontFamily">@font/opensans_bold</item>
+        <item name="android:textSize">70sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.SmallButtonText">
+        <item name="fontFamily">@font/opensans_bold</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.BigButtonText">
+        <item name="fontFamily">@font/opensans_bold</item>
+        <item name="android:textSize">35sp</item>
+    </style>
+</resources>

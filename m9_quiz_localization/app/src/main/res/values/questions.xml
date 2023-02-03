@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="question1">What happened tomorrow and what will happen yesterday?</string>
+    <string name="question2">What always increases and never decreases?</string>
+    <string name="question3">A wooden river, a wooden boat, and a wooden smoke streams over the boat. What is this?</string>
+    <string name="question4">Solve the puzzle: </string>
+</resources>

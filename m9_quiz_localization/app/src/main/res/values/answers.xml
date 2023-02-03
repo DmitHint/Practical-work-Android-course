@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="answer1.1">Yesterday</string>
+    <string name="answer1.2">Tomorrow</string>
+    <string name="answer1.3">Today</string>
+    <string name="answer1.4">Thursday</string>
+
+    <string name="answer2.1">Intellect</string>
+    <string name="answer2.2">No correct answer</string>
+    <string name="answer2.3">Age</string>
+    <string name="answer2.4">Earnings</string>
+
+    <string name="answer3.1">Steamship</string>
+    <string name="answer3.2">Airplane</string>
+    <string name="answer3.3">Drill</string>
+    <string name="answer3.4">Plane</string>
+
+    <string name="answer4">hamster</string>
+
+</resources>
