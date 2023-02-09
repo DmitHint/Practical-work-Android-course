@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">StorageBasics</string>
+    <string name="save_str">Сохранить</string>
+    <string name="clear_str">Очистить</string>
+</resources>
