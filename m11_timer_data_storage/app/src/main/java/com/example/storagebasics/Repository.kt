@@ -4,44 +4,37 @@ import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.util.Log
+import androidx.core.content.contentValuesOf
 
 
 private const val PREFERENCE_NAME = "prefs"
 private const val EDIT_TEXT_STR = "editTextStr"
 
-class Repository {
-    private lateinit var prefs: SharedPreferences
+class Repository(context: Context) {
+    private var prefs: SharedPreferences =
+        context.getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE)
     var localVariable: String? = "local variable"
 
-    fun getText(context: Context): String {
-        return when {
-            getDataFromSharedPreference(context) != null ->
-                getDataFromSharedPreference(context)!!
+    fun getText(): String =
+        when {
+            getDataFromSharedPreference() != null ->
+                getDataFromSharedPreference()!!
             getDataFromLocalVariable() != null -> getDataFromLocalVariable()!!
             else -> ""
         }
-    }
 
-    private fun getDataFromSharedPreference(context: Context): String? {
-        prefs = context.getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE)
-        Log.d("GET", prefs.getString(EDIT_TEXT_STR, null).toString())
-        return prefs.getString(EDIT_TEXT_STR, null)
-    }
+    private fun getDataFromSharedPreference(): String? =
+        prefs.getString(EDIT_TEXT_STR, null)
 
-    private fun getDataFromLocalVariable(): String? {
-        return localVariable
-    }
+    private fun getDataFromLocalVariable(): String? = localVariable
 
-    fun saveText(text: String, context: Context) {
-        prefs = context.getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = prefs.edit()
-        editor.putString(text, EDIT_TEXT_STR).apply()
+    fun saveText(text: String) {
+        prefs.edit().putString(EDIT_TEXT_STR, text).apply()
         localVariable = text
     }
 
     fun clearText() {
         localVariable = null
-        if (this::prefs.isInitialized)
-            prefs.edit().clear().apply()
+        prefs.edit().clear().apply()
     }
 }
