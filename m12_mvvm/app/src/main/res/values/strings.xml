@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Mvvm</string>
+    <string name="start_text_for_result">Здесь будет отображаться результат запроса</string>
+</resources>
