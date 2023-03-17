@@ -2,6 +2,7 @@ package com.example.m15_room
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -17,7 +18,7 @@ class MainViewModel(private val wordDao: WordDao) : ViewModel() {
 
 
     fun onAddBtn(addedText: String) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             var word: Word? = null
 
             run loop@{
@@ -44,7 +45,7 @@ class MainViewModel(private val wordDao: WordDao) : ViewModel() {
     }
 
     fun onDeleteBtn() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             wordDao.delete()
         }
     }
