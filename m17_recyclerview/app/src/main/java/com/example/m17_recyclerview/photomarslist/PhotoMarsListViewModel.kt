@@ -8,11 +8,8 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.m17_recyclerview.models.PhotoMars
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 
 class PhotoMarsListViewModel : ViewModel() {
-
     val photosMars: Flow<PagingData<PhotoMars>> = Pager(
         config = PagingConfig(pageSize = 10),
         pagingSourceFactory = {PhotoMarsPagingSource()},

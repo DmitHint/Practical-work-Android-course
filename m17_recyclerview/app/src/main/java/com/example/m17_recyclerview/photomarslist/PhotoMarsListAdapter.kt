@@ -1,6 +1,5 @@
 package com.example.m17_recyclerview.photomarslist
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -22,7 +21,6 @@ class PhotoMarsListAdapter : PagingDataAdapter<PhotoMars, PhotoMarsViewHolder>(D
             )
         )
     }
-
 
     override fun onBindViewHolder(holder: PhotoMarsViewHolder, position: Int) {
         val item = getItem(position)

@@ -6,6 +6,7 @@ import kotlinx.coroutines.delay
 
 class PhotoMarsListRepository {
     suspend fun getMarsPhotos(page: Int): List<PhotoMars>{
+        delay(2000)
         return retrofit.photos(page).photos
     }
 }
