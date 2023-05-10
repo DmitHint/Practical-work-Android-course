@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/camera_fragment">
+
+    <fragment
+        android:id="@+id/camera_fragment"
+        android:name="com.example.m20_firebase.CameraFragment"
+        tools:layout="@layout/camera_fragment"
+        android:label="Camera">
+
+        <action
+            android:id="@+id/action_cameraFragment_to_galleryFragment"
+            app:destination="@id/gallery_fragment" />
+
+        <action
+            android:id="@+id/action_cameraFragment_to_mapsFragment"
+            app:destination="@id/maps_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/maps_fragment"
+        android:name="com.example.m20_firebase.MapsFragment"
+        tools:layout="@layout/maps_fragment"
+        android:label="Maps">
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/gallery_fragment"
+        android:name="com.example.m20_firebase.GalleryFragment"
+        tools:layout="@layout/gallery_fragment"
+        android:label="Gallery">
+
+        <action
+            android:id="@+id/action_galleryFragment_to_cameraFragment"
+            app:destination="@id/camera_fragment" />
+    </fragment>
+
+</navigation>
