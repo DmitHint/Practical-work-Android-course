@@ -1,14 +1,16 @@
 package com.example.recyclerview_advanced
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.recyclerview_advanced.databinding.CharacterItemBinding
 
-class CharacterListAdapter : PagingDataAdapter<Character, CharactersViewHolder>(DiffUtilCallback()) {
+class CharacterListAdapter(private val context: Context) : PagingDataAdapter<Character, CharactersViewHolder>(DiffUtilCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersViewHolder {
         return CharactersViewHolder(
@@ -24,8 +26,13 @@ class CharacterListAdapter : PagingDataAdapter<Character, CharactersViewHolder>(
         val item = getItem(position)
         with(holder.binding) {
             name.text = item?.name ?: ""
-//            indicator.text = item?.name ?: ""
-            status.text = item?.status ?: ""
+            when (item?.status) {
+                "Alive" -> indicator.setColorFilter(ContextCompat.getColor(context, R.color.green))
+                "unknown" -> indicator.setColorFilter(ContextCompat.getColor(context, R.color.gray))
+                else -> indicator.setColorFilter(ContextCompat.getColor(context, R.color.red))
+            }
+
+            status.text = item?.status?.replaceFirstChar{it.uppercase()} ?: ""
             species.text = item?.species ?: ""
             location.text = item?.location?.name ?: ""
             item?.let {

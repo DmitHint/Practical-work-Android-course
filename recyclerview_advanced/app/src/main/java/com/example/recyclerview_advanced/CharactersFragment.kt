@@ -20,7 +20,7 @@ class CharactersFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: CharactersViewModel by viewModels()
 
-    private val characterListAdapter = CharacterListAdapter()
+    private lateinit var characterListAdapter: CharacterListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +33,13 @@ class CharactersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        characterListAdapter = CharacterListAdapter(requireContext())
+
         binding.characters.adapter = characterListAdapter.withLoadStateFooter(CharactersLoadStateAdapter())
+
+        binding.swipeRefresh.setOnRefreshListener {
+            characterListAdapter.refresh()
+        }
 
         characterListAdapter.loadStateFlow.onEach{
             binding.swipeRefresh.isRefreshing = it.refresh == LoadState.Loading

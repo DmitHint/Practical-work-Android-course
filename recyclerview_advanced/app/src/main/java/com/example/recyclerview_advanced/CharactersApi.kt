@@ -8,7 +8,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface CharactersApi {
-    @GET("/characters")
+    @GET("/api/character")
     suspend fun getCharacters(
         @Query("page") page: Int
     ): CharacterList
@@ -21,7 +21,7 @@ val retrofit = Retrofit
             it.level = HttpLoggingInterceptor.Level.BODY
         }).build()
     )
-    .baseUrl("https://rickandmortyapi.com/api")
+    .baseUrl("https://rickandmortyapi.com")
     .addConverterFactory(GsonConverterFactory.create())
     .build()
     .create(CharactersApi::class.java)
