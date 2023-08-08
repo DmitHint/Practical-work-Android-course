@@ -1,4 +1,4 @@
-package com.example.jetpack_compose
+package com.example.jetpack_compose.entities
 
 sealed class State {
     object Start : State()

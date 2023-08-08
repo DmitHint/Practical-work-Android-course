@@ -1,4 +1,4 @@
-package com.example.jetpack_compose
+package com.example.jetpack_compose.entities
 
 
 data class Episode(

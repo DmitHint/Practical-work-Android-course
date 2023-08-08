@@ -1,4 +1,4 @@
-package com.example.jetpack_compose
+package com.example.jetpack_compose.entities
 
 data class Character(
     val id: Int,
@@ -12,6 +12,10 @@ data class Character(
 )
 
 data class Location(
+    val id: Int,
     val name : String,
-    val url: String
+    val url: String,
+    val type: String,
+    val dimension: String,
+    val created: String
 )

@@ -1,5 +1,9 @@
-package com.example.jetpack_compose
+package com.example.jetpack_compose.api
 
+import com.example.jetpack_compose.entities.Character
+import com.example.jetpack_compose.entities.CharacterList
+import com.example.jetpack_compose.entities.Episode
+import com.example.jetpack_compose.entities.LocationList
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,10 +18,13 @@ interface CharactersApi {
         @Query("page") page: Int
     ): CharacterList
 
+    @GET("/api/location")
+    suspend fun getLocations(
+        @Query("page") page: Int
+    ): LocationList
+
     @GET("/api/character/{id}")
-    suspend fun getCharacterInfo(
-        @Path("id") id: Int
-    ): Character
+    suspend fun getCharacterInfo(@Path("id") id: Int): Character
 
     @GET("/api/episode/{id}")
     suspend fun getEpisodeInfo(@Path("id") id: Int): Episode

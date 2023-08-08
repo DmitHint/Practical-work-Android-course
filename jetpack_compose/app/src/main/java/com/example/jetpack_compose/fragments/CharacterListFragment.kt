@@ -1,4 +1,4 @@
-package com.example.jetpack_compose
+package com.example.jetpack_compose.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.example.jetpack_compose.adapters.CharacterListAdapter
+import com.example.jetpack_compose.adapters.CharactersLoadStateAdapter
+import com.example.jetpack_compose.R
 import com.example.jetpack_compose.databinding.FragmentCharactersBinding
+import com.example.jetpack_compose.viewmodels.CharacterListViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 

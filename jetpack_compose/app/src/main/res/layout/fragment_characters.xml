@@ -23,7 +23,7 @@
             android:id="@+id/characters"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#232323"
+            android:background="@color/list_background"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

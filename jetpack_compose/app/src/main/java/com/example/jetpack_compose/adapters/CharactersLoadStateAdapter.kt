@@ -1,4 +1,4 @@
-package com.example.jetpack_compose
+package com.example.jetpack_compose.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

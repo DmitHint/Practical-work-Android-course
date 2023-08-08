@@ -1,7 +1,9 @@
-package com.example.jetpack_compose
+package com.example.jetpack_compose.paging_source
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.example.jetpack_compose.entities.Character
+import com.example.jetpack_compose.CharactersRepository
 
 class CharacterPagingSource : PagingSource<Int, Character>() {
     private val repository = CharactersRepository()
