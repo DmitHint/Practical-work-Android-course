@@ -1,6 +1,8 @@
 package com.example.dependency
 
 import android.app.Application
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
 
 class App: Application() {
     companion object{
@@ -12,6 +14,15 @@ class App: Application() {
         super.onCreate()
 
         frameFactory = FrameFactory()
-//        daggerComponent = DaggerComponent.builder
+        daggerComponent = DaggerDaggerComponent.builder()
+            .daggerModule(DaggerModule(frameFactory))
+            .build()
+
+        startKoin {
+            modules(module{
+                single { WheelDealer() }
+                factory <BicycleFactory> { BicycleFactory(get(), frameFactory) }
+            })
+        }
     }
 }
